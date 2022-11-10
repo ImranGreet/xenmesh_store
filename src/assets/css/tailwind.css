@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@layer components {
+    .right-button {
+        @apply absolute -right-2 top-14 z-20 flex h-6 w-6 flex-col items-center justify-center rounded-full bg-gray-700 text-xl text-white shadow-md shadow-pink-200 md:h-8 md:w-8 lg:h-10 lg:w-10 lg:hover:bg-stone-900 lg:hover:shadow-pink-200/50 xl:-right-5 xl:h-12 xl:w-12;
+    }
+    .left-button {
+        @apply absolute -left-2 top-14 z-20 flex h-6 w-6 flex-col items-center justify-center rounded-full bg-gray-700 text-xl text-white shadow-md shadow-pink-200 md:h-8 md:w-8 lg:h-10 lg:w-10 lg:hover:bg-stone-900 lg:hover:shadow-pink-200/50 xl:-left-4 xl:h-12 xl:w-12;
+    }
+}
