@@ -24,7 +24,11 @@
             </div>
             <!-- operation button -->
             <div class="flex w-full flex-row gap-x-1 md:flex-col">
-                <button class="underline decoration-1 underline-offset-2">Remove</button>
+                <button
+                    @click="purchaseController.removeFromCart(1)"
+                    class="underline decoration-1 underline-offset-2">
+                    Remove
+                </button>
 
                 <button class="underline decoration-1 underline-offset-2">move to wishlist</button>
             </div>
@@ -38,6 +42,7 @@
 
 <script>
     import { ref } from 'vue';
+    import usePurchaseDetails from '@/composables/purchase';
 
     export default {
         name: 'ItemView',
@@ -45,8 +50,11 @@
             const imageText = ref(
                 'https://images.unsplash.com/photo-1662581872342-3f8e0145668f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80'
             );
+            const purchaseController = new usePurchaseDetails();
+
             return {
                 imageText,
+                purchaseController,
             };
         },
     };

@@ -10,6 +10,12 @@
 
         <router-link
             class="uppercase tracking-wide"
+            :to="{ name: `store` }">
+            Our Products
+        </router-link>
+
+        <router-link
+            class="uppercase tracking-wide"
             :to="{ name: `login` }">
             Login
         </router-link>

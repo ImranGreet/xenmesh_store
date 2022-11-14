@@ -48,14 +48,18 @@
                 <router-link
                     :to="{ name: `wish` }"
                     class="text-xl">
-                    <span class="text-xl"><font-awesome-icon icon="fa-regular fa-heart" /></span>
-                    (3)
+                    <span class="font-serif text-xl">
+                        <font-awesome-icon icon="fa-regular fa-heart" />
+                    </span>
+                    ({{ wishedItemsAmount }})
                 </router-link>
                 <router-link
                     :to="{ name: `cart` }"
                     class="text-xl">
-                    <span class="text-xl"><font-awesome-icon icon="fa-solid fa-cart-plus" /></span>
-                    ({{ cartedItems }})
+                    <span class="font-serif text-xl">
+                        <font-awesome-icon icon="fa-solid fa-cart-plus" />
+                    </span>
+                    ({{ cartedItemsAmount }})
                 </router-link>
                 <router-link to="#">
                     <span class="text-xl"><font-awesome-icon icon="fa-regular fa-bell" /></span>
@@ -73,6 +77,7 @@
 <script>
     import category from '@/utility/category.vue';
     import { useStore } from 'vuex';
+    import { computed } from 'vue';
     export default {
         name: 'SearchAndCartNav',
         components: { category },
@@ -80,8 +85,19 @@
         setup() {
             const store = useStore();
             const cartedItems = store.state.cart.cartedItems;
+            const cartedItemsAmount = computed(() => {
+                // const amount = JSON.parse(localStorage.getItem('products')).length;
+                const amount = 5;
+                return amount;
+            });
+            const wishedItemsAmount = computed(() => {
+                // const amount = JSON.parse(localStorage.getItem('wished-products')).length || 0;
+                // return amount;
+            });
             return {
                 cartedItems,
+                cartedItemsAmount,
+                wishedItemsAmount,
             };
         },
     };

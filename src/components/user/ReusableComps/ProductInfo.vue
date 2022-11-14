@@ -1,5 +1,5 @@
 <template>
-    <div class="animate-wiggle flex h-72 w-full flex-col items-center justify-start rounded-sm">
+    <div class="flex h-72 w-full animate-wiggle flex-col items-center justify-start rounded-sm">
         <div class="group relative h-1/2 w-full">
             <img
                 :src="imageText"
@@ -14,7 +14,9 @@
                     class="text-lg uppercase tracking-wide">
                     <span><font-awesome-icon icon="fa-solid fa-cart-plus" /></span>
                 </button>
-                <button class="text-lg uppercase tracking-wide">
+                <button
+                    @click="productsToBuy.addToWishList(id, category)"
+                    class="text-lg uppercase tracking-wide">
                     <span><font-awesome-icon icon="fa-regular fa-heart" /></span>
                 </button>
             </div>
